@@ -1,7 +1,7 @@
 import 'package:reduxexample/model.dart';
 import 'package:reduxexample/redux/actions.dart';
 
-enum Actions { Increment, Add }
+enum Actions { Increment }
 
 AppState appStateReducer(AppState state, action) {
   return AppState(
