@@ -8,13 +8,6 @@ class Item {
     @required this.id,
     @required this.body
   });
-
-  Item copyWith({ int id, String body }) {
-    return Item(
-      id: id ?? this.id,
-      body: body ?? this.body
-    );
-  }
 }
 
 class AppState {
@@ -27,6 +20,6 @@ class AppState {
   });
 
   AppState.initialState()
-  : items = List.unmodifiable(<Item>[]),
-    count = 0;
+    : items = List.unmodifiable(<Item>[]),
+      count = 0;
 }

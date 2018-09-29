@@ -25,13 +25,6 @@ class Item {
     @required this.id,
     @required this.body
   });
-
-  Item copyWith({ int id, String body }) {
-    return Item(
-      id: id ?? this.id,
-      body: body ?? this.body
-    );
-  }
 }
 
 class AppState {
@@ -55,7 +48,7 @@ class AppState {
 import 'package:reduxexample/model.dart';
 import 'package:reduxexample/redux/actions.dart';
 
-enum Actions { Increment, Add }
+enum Actions { Increment }
 
 AppState appStateReducer(AppState state, action) {
   return AppState(
@@ -72,14 +65,14 @@ int incrementReducer(int state, action) {
 }
 
 List <Item> itemReducer(List<Item> state, action) {
-  if (action == Actions.Add) {
+  if (action is AddItemAction) {
     return []
       ..addAll(state)
       ..add(Item(id: action.id, body: action.item));
   }
 
   if (action is RemoveItemAction) {
-    return List.unmodifiable(List.from(state))..remove(action.item);
+    return List.unmodifiable(List.from(state)..remove(action.item));
   }
 
   if (action is RemoveItemsAction) {
@@ -88,6 +81,7 @@ List <Item> itemReducer(List<Item> state, action) {
 
   return state;
 }
+
 ```
 
 ### Creating the store

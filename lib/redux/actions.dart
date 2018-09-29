@@ -13,10 +13,8 @@ class AddItemAction {
 
 class RemoveItemAction {
   final Item item;
-
   RemoveItemAction(this.item);
 }
 
 class RemoveItemsAction {
-
 }
