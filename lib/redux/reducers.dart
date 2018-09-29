@@ -18,7 +18,7 @@ List <Item> removeItemsReducer(List<Item> state, action) {
   return List.unmodifiable([]);
 }
 
-final Reducer <List<Item>> totalItemReducer = combineReducers <List<Item>>([
+final Reducer <List<Item>> itemsReducer = combineReducers <List<Item>>([
   new TypedReducer<List<Item>, AddItemAction>(addItemReducer),
   new TypedReducer<List<Item>, RemoveItemAction>(removeItemReducer),
   new TypedReducer<List<Item>, RemoveItemsAction>(removeItemsReducer),
@@ -33,7 +33,7 @@ int incrementReducer(int state, action) {
 
 AppState appStateReducer(AppState state, action) {
   return AppState(
-    items: totalItemReducer(state.items, action),
+    items: itemsReducer(state.items, action),
     count: incrementReducer(state.count, action),
   );
 }
