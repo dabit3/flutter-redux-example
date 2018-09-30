@@ -76,8 +76,6 @@ class RemoveItemsButton extends StatelessWidget {
   }
 }
 
-
-
 class ItemListWidget extends StatelessWidget {
   final _ViewModel model;
   ItemListWidget(this.model);
@@ -86,7 +84,7 @@ class ItemListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: model.items.map((Item item) => ListTile(
-        title: Text(item.body),
+        title: Text("${item.body} ${item.id}"),
         leading: IconButton(
           icon: Icon(Icons.delete),
           onPressed: () => model.onRemoveItem(item),
