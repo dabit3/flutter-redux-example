@@ -22,7 +22,15 @@ class MyApp extends StatelessWidget {
       child: new MaterialApp(
         title: 'Flutter Demo',
         theme: new ThemeData(
-          primarySwatch: Colors.blue,
+          buttonTheme: ButtonThemeData(
+            textTheme: ButtonTextTheme.primary
+          ),
+          secondaryHeaderColor: Colors.grey[600],
+          buttonColor: Colors.black,
+          primarySwatch: Colors.grey,
+          brightness: Brightness.light,
+          accentColor: Colors.purpleAccent,
+          canvasColor: Colors.grey[200]
         ),
         home: MyHomePage()
       ),
